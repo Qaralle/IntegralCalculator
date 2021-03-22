@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="cn.itlym.shoulder:lombok:0.1" type="repository">
+    <properties maven-id="cn.itlym.shoulder:lombok:0.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/cn/itlym/shoulder/lombok/0.1/lombok-0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
