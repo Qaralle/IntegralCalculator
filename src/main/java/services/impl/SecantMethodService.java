@@ -39,7 +39,10 @@ public class SecantMethodService implements ComputationMethodService {
 
         while((Math.abs(fe.getFunctionService().f(cur)) > e) || (Math.abs(cur - prev) > e)){
             double next = cur - ((cur - prev)/(fe.getFunctionService().f(cur) - fe.getFunctionService().f(prev)))* fe.getFunctionService().f(cur);
-            defaultWriter.rawWriteData("#",++it," | ","Xk-1 =", prev," | ", "f(Xk-1) =", fe.getFunctionService().f(prev)," | ", "Xk =", cur, " | ","f(Xk) =", fe.getFunctionService().f(cur), " | ","Xk+1 =", next," | ", "f(Xk+1) =", fe.getFunctionService().f(next)," | ","|Xk - Xk+1| =",Math.abs(cur-next));
+            defaultWriter.rawWriteData("#",++it," | ","Xk-1 =", prev," | ", "f(Xk-1) =", fe.getFunctionService().f(prev),
+                    " | ", "Xk =", cur, " | ","f(Xk) =", fe.getFunctionService().f(cur), " | ","Xk+1 =", next," | ",
+                    "f(Xk+1) =", fe.getFunctionService().f(next)," | ","|Xk - Xk+1| =",Math.abs(cur-next));
+            defaultWriter.rawWriteData("\n");
             prev = cur;
             cur = next;
         }

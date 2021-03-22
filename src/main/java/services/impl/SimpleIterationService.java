@@ -48,7 +48,9 @@ public class SimpleIterationService implements ComputationMethodService {
         double prev;
 
         drawChart.draw(a,b,fe.getFunctionService());
-        if ((q>=1)||(Math.abs(countFirstDivFi(fe,lambda,a))>q)||(Math.abs(countFirstDivFi(fe,lambda,b))>q)||(Math.abs(countFirstDivFi(fe,lambda,(a+b)/2))>q)) {
+        if ((q>=1)||(Math.abs(countFirstDivFi(fe,lambda,a))>q)||
+                (Math.abs(countFirstDivFi(fe,lambda,b))>q)||
+                (Math.abs(countFirstDivFi(fe,lambda,(a+b)/2))>q)) {
             defaultWriter.rawWriteData("Достаточное условие сходимости метода не соблюдается");
             return -1;
         }
@@ -59,9 +61,11 @@ public class SimpleIterationService implements ComputationMethodService {
             prev = res;
             res = countFi(fe, lambda, prev);
 
-            defaultWriter.rawWriteData("#",++it, " | ", "Xk =", prev, " | ","f(Xk) =", fe.getFunctionService().f(prev), " | ","Xk+1 =", res," | ", "Phi(Xk+1) =", countFi(fe,lambda,res)," | ",    " | ","|Xk - Xk+1| =",Math.abs(prev-res));
+            defaultWriter.rawWriteData("#",++it, " | ", "Xk =", prev, " | ","f(Xk) =", fe.getFunctionService().f(prev),
+                    " | ","Xk+1 =", res," | ", "Phi(Xk+1) =", countFi(fe,lambda,res)," | ","F(Xk+1) =", fe.getFunctionService().f(res),
+                    " | ","|Xk - Xk+1| =",Math.abs(prev-res));
 
-
+            defaultWriter.rawWriteData("\n");
             if (0<q && q <=0.5){
                 if (Math.abs(res - prev) <= e){
                     break;

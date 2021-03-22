@@ -47,18 +47,18 @@ public class BinarySearchMethodService implements ComputationMethodService {
 
         drawChart.draw(a,b,functionService);
         while (a <= b) {
-
             double x = (a + b) / 2;
-
-
             double test = Math.abs(functionService.f(x));
-
 
             if (test <= e) {
                 break;
             }
 
-            defaultWriter.rawWriteData("#",++it," | ","a =", a, " | ","b =", b," | ", "x =", x, " | ","f(a) =", functionService.f(a), " | ","f(b) =", functionService.f(b)," | ", "f(x) =", functionService.f(x)," | ","|a-b| =",Math.abs(a-b));
+            defaultWriter.rawWriteData("#",++it," | ","a =", a, " | ","b =", b," | ",
+                    "x =", x, " | ","f(a) =", functionService.f(a),
+                    " | ","f(b) =", functionService.f(b)," | ", "f(x) =", functionService.f(x),
+                    " | ","|a-b| =",Math.abs(a-b));
+            defaultWriter.rawWriteData("\n");
 
             if (sign(functionService.f(a)) != sign(functionService.f(x))) {
                 b = x;
@@ -69,7 +69,10 @@ public class BinarySearchMethodService implements ComputationMethodService {
         }
 
         answer = (a + b) / 2;
-        defaultWriter.rawWriteData("#",++it," | ","a =", a," | ", "b =", b," | ", "x =", answer, " | ","f(a) =", functionService.f(a), " | ","f(b) =", functionService.f(b)," | ", "f(x) =", functionService.f(answer)," | ","|a-b| =",Math.abs(a-b));
+        defaultWriter.rawWriteData("#",++it," | ","a =", a," | ", "b =", b,
+                " | ", "x =", answer, " | ","f(a) =",
+                functionService.f(a), " | ","f(b) =", functionService.f(b)," | ",
+                "f(x) =", functionService.f(answer)," | ","|a-b| =",Math.abs(a-b));
 
         return answer;
     }
