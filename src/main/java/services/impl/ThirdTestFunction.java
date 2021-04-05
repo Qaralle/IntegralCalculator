@@ -4,14 +4,20 @@ import main.java.services.FunctionService;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CommonFunctionalService implements FunctionService {
-    public String getSignature(){
-        return "-3 * x^3 -5 * x^2 + 4 * x -2";
+public class ThirdTestFunction implements FunctionService {
+    @Override
+    public double f(double x) {
+        return 1/Math.pow(x,2);
+    }
+
+    @Override
+    public String getSignature() {
+        return "1/x^2";
     }
 
     @Override
     public boolean isSymmetrical() {
-        return false;
+        return true;
     }
 
     @Override
@@ -21,13 +27,6 @@ public class CommonFunctionalService implements FunctionService {
 
     @Override
     public boolean isEven() {
-        return false;
+        return true;
     }
-
-    @Override
-    public double f(double x) {
-        return -3 * Math.pow(x, 3) -5 * Math.pow(x, 2) + 4 * x -2;
-    }
-
-
 }

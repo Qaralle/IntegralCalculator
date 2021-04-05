@@ -2,8 +2,8 @@ package main.java.components.command;
 
 import lombok.Getter;
 import main.java.model.FunctionEnvironment;
-import main.java.services.ComputationMethodService;
 import main.java.services.FunctionService;
+import main.java.services.MethodIntegralCalc;
 import main.java.util.MethodName;
 import org.springframework.stereotype.Component;
 
@@ -18,23 +18,28 @@ public class InputMapper {
     @Getter
     private Map<Integer, FunctionService> functionServiceMap = new HashMap<>();
     @Getter
-    private Map<MethodName, ComputationMethodService> methodServiceMap = new HashMap<>();
+    private Map<MethodName, MethodIntegralCalc> methodServiceMap = new HashMap<>();
 
     private final FunctionService CommonFunctionalService;
-    private final ComputationMethodService binarySearchMethodService;
-    private final ComputationMethodService SecantMethodService;
-    private final ComputationMethodService SimpleIterationService;
+
+    private final MethodIntegralCalc SimpsonMethod;
     private final FunctionService SinusFunction;
     private final FunctionService TestFunction;
+    private final FunctionService SecondTestFunction;
+    private final FunctionService ThirdTestFunction;
 
+    private final MethodIntegralCalc RectangularMethodService;
+    private final MethodIntegralCalc TrapeziumMethodServiсe;
 
-    public InputMapper(FunctionService commonFunctionalService, ComputationMethodService binarySearchMethodService, ComputationMethodService secantMethodService, ComputationMethodService simpleIterationService, FunctionService sinusFunction, FunctionService testFunction) {
+    public InputMapper(FunctionService commonFunctionalService, MethodIntegralCalc simpsonMethod, FunctionService sinusFunction, FunctionService testFunction, FunctionService secondTestFunction, FunctionService thirdTestFunction, MethodIntegralCalc rectangularMethodService, MethodIntegralCalc trapeziumMethodServiсe) {
         this.CommonFunctionalService = commonFunctionalService;
-        this.binarySearchMethodService = binarySearchMethodService;
-        SecantMethodService = secantMethodService;
-        SimpleIterationService = simpleIterationService;
+        SimpsonMethod = simpsonMethod;
         SinusFunction = sinusFunction;
         TestFunction = testFunction;
+        SecondTestFunction = secondTestFunction;
+        ThirdTestFunction = thirdTestFunction;
+        RectangularMethodService = rectangularMethodService;
+        TrapeziumMethodServiсe = trapeziumMethodServiсe;
     }
 
 
@@ -43,10 +48,12 @@ public class InputMapper {
         functionServiceMap.put(0, CommonFunctionalService);
         functionServiceMap.put(1, SinusFunction);
         functionServiceMap.put(2, TestFunction);
+        functionServiceMap.put(3, SecondTestFunction);
+        functionServiceMap.put(4, ThirdTestFunction);
 
-        methodServiceMap.put(MethodName.BINSEARCH, binarySearchMethodService);
-        methodServiceMap.put(MethodName.SECANTS, SecantMethodService);
-        methodServiceMap.put(MethodName.ITERATION, SimpleIterationService);
+        methodServiceMap.put(MethodName.SIMPSONA, SimpsonMethod);
+        methodServiceMap.put(MethodName.RECTANGULAR, RectangularMethodService);
+        methodServiceMap.put(MethodName.TRAPEZIUM, TrapeziumMethodServiсe);
 
     }
 

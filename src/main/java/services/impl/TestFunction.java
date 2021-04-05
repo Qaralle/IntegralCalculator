@@ -8,21 +8,27 @@ public class TestFunction implements FunctionService {
 
     @Override
     public String getSignature() {
-        return "x^3 - x + 4";
+        return "3^(x/(1-x^2))";
+    }
+
+    @Override
+    public boolean isSymmetrical() {
+        return false;
+    }
+
+    @Override
+    public double symmetricalDot() {
+        return 0;
+    }
+
+    @Override
+    public boolean isEven() {
+        return false;
     }
 
     @Override
     public double f(double x) {
-        return Math.pow(x, 3) - 3.125*Math.pow(x, 2) - 3.5*x + 2.458;
+        return Math.pow(3,(x/(1-x*x)));
     }
 
-    @Override
-    public double fFirstDerivative(double x) {
-        return 3*Math.pow(x, 2) - 6.25*x - 3.5;
-    }
-
-    @Override
-    public double fSecondDerivative(double x) {
-        return 6*x - 6.25;
-    }
 }

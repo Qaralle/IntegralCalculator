@@ -16,7 +16,6 @@ public class LinearAlgebraicEquationsSolvingConfig {
 
     public static void main(String[] args) throws InterruptedException, FileNotFoundException {
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(LinearAlgebraicEquationsSolvingConfig.class);
-//        context.getBean(DrawChart.class).draw(1,30,context.getBean(SinusFunction.class));
         context.getBean(Terminal.class).start();
     }
 }

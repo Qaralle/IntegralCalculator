@@ -7,21 +7,28 @@ import org.springframework.stereotype.Service;
 public class SinusFunction implements FunctionService {
     @Override
     public double f(double x) {
-        return Math.sin(x)+0.5;
+        return Math.sin(x)/x;
     }
 
     @Override
     public String getSignature() {
-        return "sin x + 0.5";
+        return "sin x/x";
     }
 
     @Override
-    public double fSecondDerivative(double x) {
-        return -Math.sin(x);
+    public boolean isSymmetrical() {
+        return true;
     }
 
     @Override
-    public double fFirstDerivative(double x) {
-        return Math.cos(x);
+    public double symmetricalDot() {
+        return 0;
     }
+
+    @Override
+    public boolean isEven() {
+        return true;
+    }
+
+
 }
