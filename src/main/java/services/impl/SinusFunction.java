@@ -17,7 +17,7 @@ public class SinusFunction implements FunctionService {
 
     @Override
     public boolean isSymmetrical() {
-        return true;
+        return false;
     }
 
     @Override

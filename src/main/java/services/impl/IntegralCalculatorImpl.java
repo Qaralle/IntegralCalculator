@@ -24,6 +24,8 @@ public class IntegralCalculatorImpl implements IntegralCalculator {
             return Double.NaN;
         }
 
+        defaultWriter.rawWriteData("I =",last,"n = 4");
+
         double current = 0;
         double diff = 0;
         double buff;
@@ -46,7 +48,7 @@ public class IntegralCalculatorImpl implements IntegralCalculator {
 
 
             diff = Math.abs(current - last);
-            if (diff <= diffBuff) {
+            if (diff <= 2 * diffBuff) {
                 defaultWriter.rawWriteData("I =",current,"n =",fe.isEven()?2*fe.getN(): fe.getN(),"difI =", diff);
             }else {
                 defaultWriter.rawWriteData("Интеграл расходится");

@@ -42,7 +42,7 @@ public class SimpsonMethod implements MethodIntegralCalc {
                 return Double.NaN;
             }
 
-            if (i % 2 == 0){
+            if (i % 2 != 0){
                 result += 4 * buff;
             } else {
                 result += 2 * buff;
